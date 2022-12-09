@@ -35,10 +35,7 @@ export const ResponseFunctionDefinition = DefineFunction({
   },
 })
 
-export default SlackFunction(ResponseFunctionDefinition, ({ inputs, env }) => {
-  const input = inputs
-  console.log(input)
-
+export default SlackFunction(ResponseFunctionDefinition, ({ inputs }) => {
   const response = `New custom emoji :${inputs.name}: has been added :sparkles:`
   return { outputs: { response } }
 })
