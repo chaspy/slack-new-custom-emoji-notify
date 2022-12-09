@@ -7,11 +7,11 @@ import Workflow from '../workflows/workflow.ts'
  * such as a user pressing a button or when a specific event occurs.
  * https://api.slack.com/future/triggers
  */
+
 const Trigger: Trigger<typeof Workflow.definition> = {
   type: 'event',
   event: {
     event_type: 'slack#/events/emoji_changed',
-    channel_ids: ['UPDATEME'],
   },
   name: 'Send a message',
   description: 'Send message to channel',
