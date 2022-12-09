@@ -32,7 +32,7 @@ const FunctionStep = Workflow.addStep(ResponseFunctionDefinition, {
 })
 
 Workflow.addStep(Schema.slack.functions.SendMessage, {
-  channel_id: `env['CHANNEL_ID']`,
+  channel_id: 'UPDATEME',
   message: FunctionStep.outputs.response,
 })
 
