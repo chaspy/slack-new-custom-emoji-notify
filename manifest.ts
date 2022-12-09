@@ -9,7 +9,7 @@ import Workflow from './workflows/workflow.ts'
 export default Manifest({
   name: 'new-custom-emoji',
   description: 'Notify when new custom emoji is added',
-  icon: 'assets/new-custom-emojo.png',
+  icon: 'assets/new-custom-emoji.png',
   workflows: [Workflow],
   outgoingDomains: [],
   botScopes: ['chat:write', 'chat:write.public', 'emoji:read'],
