@@ -1,6 +1,4 @@
 import { DefineFunction, Schema, SlackFunction } from 'deno-slack-sdk/mod.ts'
-import { DateTime, datetime } from 'ptera/mod.ts'
-import conf from '../conf.ts'
 
 /**
  * Functions are reusable building blocks of automation that accept
