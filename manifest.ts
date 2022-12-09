@@ -1,5 +1,5 @@
-import { Manifest } from "deno-slack-sdk/mod.ts";
-import Workflow from "./workflows/workflow.ts";
+import { Manifest } from 'deno-slack-sdk/mod.ts'
+import Workflow from './workflows/workflow.ts'
 
 /**
  * The app manifest contains the app's configuration. This
@@ -7,10 +7,10 @@ import Workflow from "./workflows/workflow.ts";
  * https://api.slack.com/future/manifest
  */
 export default Manifest({
-  name: "new-custom-emoji",
-  description: "Notify when new custom emoji is added",
-  icon: "assets/new-custom-emojo.png",
+  name: 'new-custom-emoji',
+  description: 'Notify when new custom emoji is added',
+  icon: 'assets/new-custom-emojo.png',
   workflows: [Workflow],
   outgoingDomains: [],
-  botScopes: ["chat:write", "chat:write.public", "reactions:read"],
-});
+  botScopes: ['chat:write', 'chat:write.public', 'emoji:read'],
+})
