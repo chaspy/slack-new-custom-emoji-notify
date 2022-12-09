@@ -15,20 +15,20 @@ const Workflow = DefineWorkflow({
       subtype: {
         type: Schema.types.string,
       },
-      names: {
+      name: {
         type: Schema.types.string,
       },
       channelId: {
         type: Schema.slack.types.channel_id,
       },
     },
-    required: ['subtype', 'names'],
+    required: ['subtype', 'name'],
   },
 })
 
 const FunctionStep = Workflow.addStep(ResponseFunctionDefinition, {
   subtype: Workflow.inputs.subtype,
-  names: Workflow.inputs.names,
+  name: Workflow.inputs.name,
 })
 
 Workflow.addStep(Schema.slack.functions.SendMessage, {

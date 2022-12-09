@@ -20,8 +20,8 @@ const Trigger: Trigger<typeof Workflow.definition> = {
     subtype: {
       value: '{{data.subtype}}',
     },
-    names: {
-      value: '{{data.names}}',
+    name: {
+      value: '{{data.name}}',
     },
   },
 }
