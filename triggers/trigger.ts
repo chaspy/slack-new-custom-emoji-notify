@@ -12,6 +12,12 @@ const Trigger: Trigger<typeof Workflow.definition> = {
   type: 'event',
   event: {
     event_type: 'slack#/events/emoji_changed',
+    filter: {
+      version: 1,
+      root: {
+        statement: '{{data.subtype}} == add',
+      },
+    },
   },
   name: 'Send a message',
   description: 'Send message to channel',
