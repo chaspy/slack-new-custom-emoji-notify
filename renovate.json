@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base"],
+  "enabledManagers": ["regex", "github-actions"],
+  "labels": ["r:{{depName}}", "r:{{depName}}/{{newVersion}}"],
+  "regexManagers": [
+    {
+      "fileMatch": ["^import_map.json$"],
+      "matchStrings": [
+        "\".+?\"\\s*:\\s*\"(?<depName>https://deno.land/.+?)@v?(?<currentValue>\\d+?\\.\\d+?\\.\\d+?).*?\""
+      ],
+      "datasourceTemplate": "deno"
+    }
+  ]
+}
