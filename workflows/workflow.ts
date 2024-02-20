@@ -1,5 +1,4 @@
-import { DefineWorkflow, Schema } from 'deno-slack-sdk/mod.ts'
-import { ResponseFunctionDefinition } from '../functions/response.ts'
+import { DefineWorkflow, Schema } from "deno-slack-sdk/mod.ts";
 
 /**
  * A Workflow is a set of steps that are executed in order.
@@ -7,9 +6,9 @@ import { ResponseFunctionDefinition } from '../functions/response.ts'
  * https://api.slack.com/future/workflows
  */
 const Workflow = DefineWorkflow({
-  callback_id: 'workflow',
-  title: 'Send a message',
-  description: 'Send a message to channel',
+  callback_id: "workflow",
+  title: "Send a message",
+  description: "Send a message to channel",
   input_parameters: {
     properties: {
       subtype: {
@@ -22,18 +21,13 @@ const Workflow = DefineWorkflow({
         type: Schema.slack.types.channel_id,
       },
     },
-    required: ['subtype', 'name'],
+    required: ["subtype", "name"],
   },
-})
-
-const FunctionStep = Workflow.addStep(ResponseFunctionDefinition, {
-  subtype: Workflow.inputs.subtype,
-  name: Workflow.inputs.name,
-})
+});
 
 Workflow.addStep(Schema.slack.functions.SendMessage, {
-  channel_id: 'UPDATEME',
-  message: FunctionStep.outputs.response,
-})
+  channel_id: "UPDATEME",
+  message: `New custom emoji :${Workflow.inputs.name}: as \`:${Workflow.inputs.name}:\` has been added :sparkles:`,
+});
 
-export default Workflow
+export default Workflow;
