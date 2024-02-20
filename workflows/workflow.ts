@@ -5,7 +5,7 @@ import { DefineWorkflow, Schema } from "deno-slack-sdk/mod.ts";
  * Each step in a Workflow is a function.
  * https://api.slack.com/future/workflows
  */
-const Workflow = DefineWorkflow({
+const workflow = DefineWorkflow({
   callback_id: "workflow",
   title: "Send a message",
   description: "Send a message to channel",
@@ -25,9 +25,9 @@ const Workflow = DefineWorkflow({
   },
 });
 
-Workflow.addStep(Schema.slack.functions.SendMessage, {
+workflow.addStep(Schema.slack.functions.SendMessage, {
   channel_id: "UPDATEME",
-  message: `New custom emoji :${Workflow.inputs.name}: as \`:${Workflow.inputs.name}:\` has been added :sparkles:`,
+  message: `New custom emoji :${workflow.inputs.name}: as \`:${workflow.inputs.name}:\` has been added :sparkles:`,
 });
 
-export default Workflow;
+export default workflow;

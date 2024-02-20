@@ -1,5 +1,5 @@
-import { Trigger } from 'deno-slack-api/types.ts'
-import Workflow from '../workflows/workflow.ts'
+import { Trigger } from "deno-slack-api/types.ts";
+import workflow from "../workflows/workflow.ts";
 
 /**
  * Triggers determine when Workflows are executed. A trigger
@@ -8,28 +8,28 @@ import Workflow from '../workflows/workflow.ts'
  * https://api.slack.com/future/triggers
  */
 
-const Trigger: Trigger<typeof Workflow.definition> = {
-  type: 'event',
+const Trigger: Trigger<typeof workflow.definition> = {
+  type: "event",
   event: {
-    event_type: 'slack#/events/emoji_changed',
+    event_type: "slack#/events/emoji_changed",
     filter: {
       version: 1,
       root: {
-        statement: '{{data.subtype}} == add',
+        statement: "{{data.subtype}} == add",
       },
     },
   },
-  name: 'Send a message',
-  description: 'Send message to channel',
-  workflow: '#/workflows/workflow',
+  name: "Send a message",
+  description: "Send message to channel",
+  workflow: "#/workflows/workflow",
   inputs: {
     subtype: {
-      value: '{{data.subtype}}',
+      value: "{{data.subtype}}",
     },
     name: {
-      value: '{{data.name}}',
+      value: "{{data.name}}",
     },
   },
-}
+};
 
-export default Trigger
+export default Trigger;
